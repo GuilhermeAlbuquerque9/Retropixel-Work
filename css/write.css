@@ -1,0 +1,193 @@
+.write-top{
+
+    height:90px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 20px;
+
+    background:
+    linear-gradient(
+        to bottom,
+        #ffffff,
+        #dbeeff
+    );
+
+    border-bottom:1px solid #8eb7dc;
+}
+
+.write-logo{
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.write-logo img{
+
+    width:64px;
+    height:64px;
+}
+
+.home-btn{
+
+    padding:10px 18px;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    background:
+    linear-gradient( to bottom, #fdecba, #ffc928, #ffb700 );
+}
+
+/* Ribbon */
+
+.ribbon{
+
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+
+    padding:10px;
+
+    background:
+    linear-gradient(
+        to bottom,
+        #fff8d5,
+        #ffe173
+    );
+
+    border-bottom:1px solid #caa940;
+}
+
+.group{
+
+    display:flex;
+    align-items:center;
+    gap:6px;
+
+    padding-right:12px;
+
+    border-right:
+    1px solid rgba(0,0,0,.15);
+}
+
+.ribbon button{
+
+    border:none;
+
+    padding:8px 12px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    background:
+    linear-gradient(
+        to bottom,
+        white,
+        #efefef
+    );
+}
+
+.ribbon button:hover{
+
+    background:
+    linear-gradient(
+        to bottom,
+        #fff8cc,
+        #ffd24d
+    );
+}
+
+.ribbon select,
+.ribbon input[type="color"]{
+
+    height:36px;
+
+    border-radius:6px;
+
+    border:1px solid #aaa;
+}
+
+/* Documento */
+
+.editor-container{
+
+    display:flex;
+    justify-content:center;
+
+    padding:30px;
+}
+
+.paper{
+
+    width:900px;
+
+    background:white;
+
+    min-height:1200px;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,.18);
+
+    padding:40px;
+}
+
+.document-title{
+
+    width:100%;
+
+    border:none;
+
+    font-size:28px;
+
+    margin-bottom:25px;
+
+    font-weight:bold;
+
+    outline:none;
+}
+
+.editor{
+
+    min-height:950px;
+
+    outline:none;
+
+    line-height:1.6;
+}
+
+/* Barra inferior */
+
+.status-bar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:12px 20px;
+
+    background:
+    linear-gradient(
+        to bottom,
+        #edf6ff,
+        #d6e8fa
+    );
+
+    border-top:
+    1px solid #a6c0db;
+}
+
+@media(max-width:900px){
+
+    .paper{
+
+        width:100%;
+    }
+}

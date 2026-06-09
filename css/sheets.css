@@ -1,0 +1,245 @@
+.sheets-top{
+
+    height:90px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 20px;
+
+    background:
+    linear-gradient(
+        to bottom,
+        #ffffff,
+        #dff5df
+    );
+
+    border-bottom:1px solid #9dc99d;
+}
+
+.sheets-logo{
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.sheets-logo img{
+
+    width:64px;
+    height:64px;
+}
+
+.sheets-top button{
+
+    padding:10px 18px;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    background:
+    linear-gradient( to bottom, #dfb, #7ce27c );
+}
+
+/* Ribbon */
+
+.ribbon{
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    padding:10px;
+
+    background:
+    linear-gradient(
+        to bottom,
+        #f5fff5,
+        #c9efc9
+    );
+
+    border-bottom:1px solid #9dc99d;
+}
+
+.ribbon button{
+
+    padding:8px 14px;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+}
+
+.ribbon input[type="color"]{
+
+    width:40px;
+    height:40px;
+
+    border:none;
+}
+
+/* Barra de Fórmulas */
+
+.formula-bar{
+
+    display:flex;
+
+    gap:10px;
+
+    padding:10px;
+
+    background:white;
+
+    border-bottom:1px solid #ccc;
+}
+
+.formula-bar input{
+
+    flex:1;
+
+    padding:8px;
+}
+
+/* Planilha */
+
+main{
+
+    padding:20px;
+
+    overflow:auto;
+}
+
+table{
+
+    border-collapse:collapse;
+
+    background:white;
+}
+
+th{
+
+    background:
+    linear-gradient(
+        to bottom,
+        #f6fff6,
+        #d2efd2
+    );
+}
+
+th,
+td{
+
+    border:1px solid #cfcfcf;
+
+    min-width:110px;
+
+    height:30px;
+
+    padding:4px;
+}
+
+td{
+
+    cursor:text;
+}
+
+td:focus{
+
+    outline:2px solid #4fa84f;
+}
+
+/* Abas */
+
+.tabs{
+
+    display:flex;
+
+    gap:6px;
+
+    padding:10px;
+
+    background:#f1f8f1;
+
+    border-top:1px solid #ccc;
+}
+
+.tabs button{
+
+    padding:8px 14px;
+
+    border:none;
+
+    border-radius:8px 8px 0 0;
+
+    cursor:pointer;
+}
+
+/* Rodapé */
+
+.status-bar{
+
+    padding:10px 20px;
+
+    background:
+    linear-gradient(
+        to bottom,
+        #f4fff4,
+        #daf3da
+    );
+
+    border-top:1px solid #b4d8b4;
+}
+
+.tabs{
+
+    display:flex;
+
+    gap:6px;
+
+    padding:10px;
+
+    background:#f1f8f1;
+
+    border-top:1px solid #ccc;
+}
+
+.sheet-tab{
+
+    padding:8px 14px;
+
+    border:none;
+
+    border-radius:8px 8px 0 0;
+
+    cursor:pointer;
+
+    background:
+    linear-gradient(
+        to bottom,
+        #ffffff,
+        #d8efd8
+    );
+}
+
+.sheet-tab.active{
+
+    background:
+    linear-gradient(
+        to bottom,
+        #ffffff,
+        #9fe09f
+    );
+
+    font-weight:bold;
+}
+
+.add-tab{
+
+    font-weight:bold;
+}
