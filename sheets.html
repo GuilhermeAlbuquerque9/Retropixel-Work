@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Retropixel Sheets™</title>
+
+<link rel="icon" href="assets/icons/Sheets_icon.png">
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/sheets.css">
+
+</head>
+<body>
+
+<header class="sheets-top">
+
+    <div class="sheets-logo">
+
+        <img src="assets/icons/Sheets_icon.png" alt="Sheets">
+
+        <div>
+
+            <h1>Retropixel Sheets™</h1>
+
+            <p>Planilhas e cálculos</p>
+
+        </div>
+
+    </div>
+
+    <button onclick="location.href='index.html'">
+        🏠 Início
+    </button>
+
+</header>
+
+<section class="ribbon">
+
+    <button onclick="newSheet()">📄 Nova</button>
+
+    <button onclick="saveCSV()">💾 CSV</button>
+
+    <button onclick="document.getElementById('csvFile').click()">
+    📂 Abrir CSV
+    </button>
+
+    <input
+      type="file"
+      id="csvFile"
+      accept=".csv"
+       hidden>
+
+    <button onclick="toggleBold()">𝐁</button>
+
+    <button onclick="toggleItalic()">𝘐</button>
+
+    <input type="color" id="textColor">
+
+    <input type="color" id="cellColor">
+
+    <button onclick="deleteCurrentSheet()">
+      🗑️ Excluir Planilha
+    </button>
+
+</section>
+
+<section class="formula-bar">
+
+    <span>fx</span>
+
+    <input
+        type="text"
+        id="formulaInput"
+        placeholder="Digite um valor ou fórmula">
+
+</section>
+
+<main>
+
+    <div id="spreadsheet"></div>
+
+</main>
+
+<div class="tabs" id="tabs">
+
+</div>
+
+<footer class="status-bar">
+
+    <span id="selectedCell">
+        Nenhuma célula
+    </span>
+
+</footer>
+
+<script src="js/sheets.js"></script>
+
+</body>
+</html>

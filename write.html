@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Retropixel Write™</title>
+
+<link rel="icon" href="assets/icons/Write_icon.png">
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/write.css">
+
+</head>
+
+<body>
+
+<header class="write-top">
+
+    <div class="write-logo">
+
+        <img src="assets/icons/Write_icon.png" alt="Write">
+
+        <div>
+
+            <h1>Retropixel Write™</h1>
+
+            <p>Editor de documentos</p>
+
+        </div>
+
+    </div>
+
+    <button class="home-btn" onclick="location.href='index.html'">
+        🏠 Início
+    </button>
+
+</header>
+
+<section class="ribbon">
+
+    <div class="group">
+
+        <button onclick="newDocument()">📄 Novo</button>
+
+        <button onclick="saveDocument()">💾 TXT</button>
+
+        <button onclick="saveHTML()">🌐 HTML</button>
+
+    </div>
+
+    <div class="group">
+
+        <select id="fontName" onchange="changeFont()">
+
+            <option>Arial</option>
+            <option>Verdana</option>
+            <option>Tahoma</option>
+            <option>Georgia</option>
+            <option>Courier New</option>
+
+        </select>
+
+        <select id="fontSize" onchange="changeSize()">
+
+            <option>1</option>
+            <option>2</option>
+            <option selected>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+
+        </select>
+
+    </div>
+
+    <div class="group">
+
+        <button onclick="format('bold')"><b>B</b></button>
+
+        <button onclick="format('italic')"><i>I</i></button>
+
+        <button onclick="format('underline')"><u>U</u></button>
+
+    </div>
+
+    <div class="group">
+
+        <button onclick="format('justifyLeft')">⬅</button>
+
+        <button onclick="format('justifyCenter')">↔</button>
+
+        <button onclick="format('justifyRight')">➡</button>
+
+    </div>
+
+    <div class="group">
+
+        <input
+            type="color"
+            id="textColor"
+            onchange="changeColor()">
+
+    </div>
+
+    <div class="group">
+
+        <button onclick="insertDate()">
+            📅 Data
+        </button>
+
+    </div>
+
+</section>
+
+<main class="editor-container">
+
+    <div class="paper">
+
+        <input
+            id="documentTitle"
+            class="document-title"
+            placeholder="Documento sem título">
+
+        <div
+            id="editor"
+            class="editor"
+            contenteditable="true"></div>
+
+    </div>
+
+</main>
+
+<footer class="status-bar">
+
+    <span id="wordCount">
+        0 palavras
+    </span>
+
+    <span id="charCount">
+        0 caracteres
+    </span>
+
+</footer>
+
+<script src="js/write.js"></script>
+
+</body>
+</html>

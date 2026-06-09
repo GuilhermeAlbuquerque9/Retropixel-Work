@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Retropixel Tasks™</title>
+
+<link rel="icon" href="assets/icons/Tasks_icon.png">
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/tasks.css">
+
+</head>
+<body>
+
+<header class="tasks-top">
+
+    <div class="tasks-logo">
+
+        <img src="assets/icons/Tasks_icon.png">
+
+        <div>
+
+            <h1>Retropixel Tasks™</h1>
+
+            <p>Organize seu trabalho</p>
+
+        </div>
+
+    </div>
+
+    <button onclick="location.href='index.html'">
+        🏠 Início
+    </button>
+
+</header>
+
+<section class="task-toolbar">
+
+    <input
+        type="text"
+        id="taskInput"
+        placeholder="Nova tarefa...">
+
+    <select id="priority">
+
+        <option value="alta">🔴 Alta</option>
+        <option value="media">🟡 Média</option>
+        <option value="baixa">🟢 Baixa</option>
+
+    </select>
+
+    <input
+        type="date"
+        id="dueDate">
+
+    <button onclick="addTask()">
+        ➕ Adicionar
+    </button>
+
+</section>
+
+<section class="search-area">
+
+    <input
+        type="text"
+        id="search"
+        placeholder="🔎 Buscar tarefa">
+
+</section>
+
+<section class="stats">
+
+    <div class="stat-card">
+
+        <h3 id="totalTasks">0</h3>
+
+        <p>Tarefas</p>
+
+    </div>
+
+    <div class="stat-card">
+
+        <h3 id="completedTasks">0</h3>
+
+        <p>Concluídas</p>
+
+    </div>
+
+    <div class="stat-card">
+
+        <h3 id="pendingTasks">0</h3>
+
+        <p>Pendentes</p>
+
+    </div>
+
+</section>
+
+<main>
+
+    <div id="taskList"></div>
+
+</main>
+
+<script src="js/tasks.js"></script>
+
+</body>
+</html>

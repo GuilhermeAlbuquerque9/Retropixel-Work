@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Retropixel Slides™</title>
+
+<link rel="icon" href="assets/icons/Slides_icon.png">
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/slides.css">
+
+</head>
+<body>
+
+<header class="slides-top">
+
+    <div class="slides-logo">
+
+        <img src="assets/icons/Slides_icon.png" alt="Slides">
+
+        <div>
+
+            <h1>Retropixel Slides™</h1>
+
+            <p>Apresentações Aero</p>
+
+        </div>
+
+    </div>
+
+    <button onclick="location.href='index.html'">
+        🏠 Início
+    </button>
+
+</header>
+
+<section class="ribbon">
+
+    <button onclick="newSlide()">
+        ➕ Novo Slide
+    </button>
+
+    <button onclick="deleteSlide()">
+        🗑️ Excluir
+    </button>
+
+    <button onclick="saveProject()">
+        💾 Salvar
+    </button>
+
+    <button onclick="document.getElementById('projectFile').click()">
+        📂 Abrir
+    </button>
+
+    <button onclick="startPresentation()">
+        ▶️ Apresentar
+    </button>
+
+    <button onclick="stopPresentation()">
+        ⏹ Encerrar
+    </button>
+
+    <input
+        type="file"
+        id="projectFile"
+        accept=".rpss,.json"
+        hidden>
+
+</section>
+
+<div class="workspace">
+
+    <aside class="sidebar">
+
+        <div id="slideList"></div>
+
+    </aside>
+
+    <main class="editor">
+
+        <div id="slideCanvas" class="slide">
+
+            <input
+                id="slideTitle"
+                class="slide-title"
+                placeholder="Título">
+
+            <textarea
+                id="slideSubtitle"
+                class="slide-subtitle"
+                placeholder="Subtítulo"></textarea>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="js/slides.js"></script>
+
+</body>
+</html>

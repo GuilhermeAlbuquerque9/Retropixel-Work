@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Retropixel Draw™</title>
+
+<link rel="icon" href="assets/icons/Draw_icon.png">
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/draw.css">
+
+</head>
+<body>
+
+<header class="draw-top">
+
+    <div class="draw-logo">
+
+        <img src="assets/icons/Draw_icon.png">
+
+        <div>
+
+            <h1>Retropixel Draw™</h1>
+
+            <p>Diagramas e desenhos vetoriais</p>
+
+        </div>
+
+    </div>
+
+    <button onclick="location.href='index.html'">
+        🏠 Início
+    </button>
+
+</header>
+
+<section class="toolbar">
+
+    <button onclick="setTool('select')">
+        🖱️ Seleção
+    </button>
+
+    <button onclick="setTool('rect')">
+        ▭ Retângulo
+    </button>
+
+    <button onclick="setTool('circle')">
+        ◯ Círculo
+    </button>
+
+    <button onclick="setTool('line')">
+        ╱ Linha
+    </button>
+
+    <button onclick="addText()">
+        🔤 Texto
+    </button>
+
+    <input
+        type="color"
+        id="fillColor"
+        value="#ffffff">
+
+    <input
+        type="color"
+        id="strokeColor"
+        value="#0088ff">
+
+    <input
+        type="number"
+        id="strokeWidth"
+        min="1"
+        max="20"
+        value="2">
+
+    <button onclick="saveProject()">
+        💾 Salvar
+    </button>
+
+    <button onclick="document.getElementById('openFile').click()">
+        📂 Abrir
+    </button>
+
+    <button onclick="exportPNG()">
+        🖼️ PNG
+    </button>
+
+    <input
+        type="file"
+        id="openFile"
+        accept=".rpd"
+        hidden>
+
+</section>
+
+<div class="workspace">
+
+    <svg id="canvas"></svg>
+
+</div>
+
+<script src="js/draw.js"></script>
+
+</body>
+</html>
