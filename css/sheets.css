@@ -9,13 +9,9 @@
     padding:0 20px;
 
     background:
-    linear-gradient(
-        to bottom,
-        #ffffff,
-        #dff5df
-    );
+    linear-gradient( to bottom, #9eff8a, #42be1f );
 
-    border-bottom:1px solid #9dc99d;
+    border-bottom:1px solid #0f0;
 }
 
 .sheets-logo{
@@ -42,7 +38,7 @@
     cursor:pointer;
 
     background:
-    linear-gradient( to bottom, #dfb, #7ce27c );
+    linear-gradient( to bottom, #dfb, #31a931 );
 }
 
 /* Ribbon */
@@ -56,11 +52,7 @@
     padding:10px;
 
     background:
-    linear-gradient(
-        to bottom,
-        #f5fff5,
-        #c9efc9
-    );
+    linear-gradient( to bottom, #92e592, #3dd23d );
 
     border-bottom:1px solid #9dc99d;
 }
