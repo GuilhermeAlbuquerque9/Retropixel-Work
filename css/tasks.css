@@ -115,14 +115,10 @@
     border-radius:18px;
 
     background:
-    linear-gradient(
-        to bottom,
-        white,
-        #ebffeb
-    );
+    linear-gradient( to bottom, #c1ff8e, #0f0 );
 
     box-shadow:
-    0 3px 10px rgba(0,0,0,.1);
+    0 3px 10px rgba(0, 0, 0, 0.64);
 }
 
 /* Lista */
