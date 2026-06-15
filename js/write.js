@@ -1,85 +1,216 @@
-function toggleFormat(button, command){
+// =========================
+// ELEMENTOS
+// =========================
+
+const pagesContainer =
+document.getElementById(
+    "pagesContainer"
+);
+
+const wordCount =
+document.getElementById(
+    "wordCount"
+);
+
+const charCount =
+document.getElementById(
+    "charCount"
+);
+
+const pageCount =
+document.getElementById(
+    "pageCount"
+);
+
+const fontName =
+document.getElementById(
+    "fontName"
+);
+
+const fontSize =
+document.getElementById(
+    "fontSize"
+);
+
+const textColor =
+document.getElementById(
+    "textColor"
+);
+
+// =========================
+// TOGGLE
+// =========================
+
+const boldBtn =
+document.getElementById(
+    "boldBtn"
+);
+
+const italicBtn =
+document.getElementById(
+    "italicBtn"
+);
+
+const underlineBtn =
+document.getElementById(
+    "underlineBtn"
+);
+
+// =========================
+// FORMATAÇÃO
+// =========================
+
+boldBtn.onclick = () => {
 
     document.execCommand(
-        command,
-        false,
-        null
+        "bold"
     );
 
-    button.classList.toggle(
+    boldBtn.classList.toggle(
         "active"
     );
+};
 
-    updateStats();
-}
-
-function changeFont(){
-
-    const font =
-    document.getElementById(
-        "fontName"
-    ).value;
+italicBtn.onclick = () => {
 
     document.execCommand(
-        "fontName",
-        false,
-        font
+        "italic"
     );
-}
 
-function changeSize(){
+    italicBtn.classList.toggle(
+        "active"
+    );
+};
 
-    const size =
-    document.getElementById(
-        "fontSize"
-    ).value;
+underlineBtn.onclick = () => {
 
     document.execCommand(
-        "styleWithCSS",
-        false,
-        true
+        "underline"
     );
+
+    underlineBtn.classList.toggle(
+        "active"
+    );
+};
+
+// =========================
+// ALINHAMENTO
+// =========================
+
+document
+.getElementById("leftBtn")
+.onclick = () => {
 
     document.execCommand(
-        "fontSize",
-        false,
-        7
+        "justifyLeft"
     );
+};
 
-    const fonts =
-    document.getElementsByTagName(
-        "font"
+document
+.getElementById("centerBtn")
+.onclick = () => {
+
+    document.execCommand(
+        "justifyCenter"
     );
+};
 
-    for(let i=0;i<fonts.length;i++){
+document
+.getElementById("rightBtn")
+.onclick = () => {
 
-        if(
-            fonts[i].size == "7"
+    document.execCommand(
+        "justifyRight"
+    );
+};
+
+// =========================
+// FONTE
+// =========================
+
+fontName.addEventListener(
+    "change",
+    () => {
+
+        document.execCommand(
+            "fontName",
+            false,
+            fontName.value
+        );
+    }
+);
+
+// =========================
+// TAMANHO
+// =========================
+
+fontSize.addEventListener(
+    "change",
+    () => {
+
+        const px =
+        fontSize.value;
+
+        document.execCommand(
+            "styleWithCSS",
+            false,
+            true
+        );
+
+        document.execCommand(
+            "fontSize",
+            false,
+            7
+        );
+
+        const fonts =
+        document.getElementsByTagName(
+            "font"
+        );
+
+        for(
+            let i = 0;
+            i < fonts.length;
+            i++
         ){
 
-            fonts[i].removeAttribute(
-                "size"
-            );
+            if(
+                fonts[i].size === "7"
+            ){
 
-            fonts[i].style.fontSize =
-            size + "px";
+                fonts[i]
+                .removeAttribute(
+                    "size"
+                );
+
+                fonts[i]
+                .style
+                .fontSize =
+                px + "px";
+            }
         }
     }
-}
+);
 
-function changeColor(){
+// =========================
+// COR
+// =========================
 
-    const color =
-    document.getElementById(
-        "textColor"
-    ).value;
+textColor.addEventListener(
+    "change",
+    () => {
 
-    document.execCommand(
-        "foreColor",
-        false,
-        color
-    );
-}
+        document.execCommand(
+            "foreColor",
+            false,
+            textColor.value
+        );
+    }
+);
+
+// =========================
+// DATA
+// =========================
 
 function insertDate(){
 
@@ -98,41 +229,49 @@ function insertDate(){
     updateStats();
 }
 
+// =========================
+// NOVA PÁGINA
+// =========================
+
 function addPage(){
 
-    const page =
+    const paper =
     document.createElement(
         "div"
     );
 
-    page.className =
+    paper.className =
     "paper";
 
-    page.innerHTML = `
+    paper.innerHTML = `
 
         <div
-            class="editor"
+            class="editor-page"
             contenteditable="true">
         </div>
 
     `;
 
-    document
-    .getElementById(
-        "pagesContainer"
-    )
-    .appendChild(page);
+    pagesContainer
+    .appendChild(
+        paper
+    );
 
     const editor =
-    page.querySelector(
-        ".editor"
+    paper.querySelector(
+        ".editor-page"
     );
 
-    editor.addEventListener(
-        "input",
-        updateStats
+    bindEditor(
+        editor
     );
+
+    updateStats();
 }
+
+// =========================
+// NOVO DOCUMENTO
+// =========================
 
 function newDocument(){
 
@@ -140,54 +279,64 @@ function newDocument(){
         !confirm(
             "Criar novo documento?"
         )
-    ) return;
+    ){
+        return;
+    }
 
-    const pages =
-    document.querySelectorAll(
-        ".paper"
+    pagesContainer.innerHTML = `
+
+        <div class="paper">
+
+            <input
+                id="documentTitle"
+                class="document-title"
+                placeholder="Documento sem título">
+
+            <div
+                class="editor-page"
+                contenteditable="true">
+            </div>
+
+        </div>
+
+    `;
+
+    const editor =
+    document.querySelector(
+        ".editor-page"
     );
 
-    pages.forEach(
-        (page,index)=>{
-
-            if(index > 0){
-
-                page.remove();
-            }
-        }
+    bindEditor(
+        editor
     );
-
-    document
-    .getElementById(
-        "documentTitle"
-    ).value = "";
-
-    document
-    .getElementById(
-        "editor"
-    ).innerHTML = "";
 
     updateStats();
 }
 
+// =========================
+// TXT
+// =========================
+
 function saveDocument(){
 
-    let text = "";
+    let content = "";
 
     document
     .querySelectorAll(
-        ".editor"
+        ".editor-page"
     )
-    .forEach(editor=>{
+    .forEach(
+        page => {
 
-        text +=
-        editor.innerText +
-        "\n\n";
-    });
+            content +=
+            page.innerText +
+            "\n\n";
+        }
+    );
 
     const blob =
     new Blob(
-        [text],
+        [content],
         {
             type:
             "text/plain"
@@ -210,38 +359,42 @@ function saveDocument(){
     a.click();
 }
 
+// =========================
+// HTML
+// =========================
+
 function saveHTML(){
 
     const title =
     document
     .getElementById(
         "documentTitle"
-    )
-    .value;
+    )?.value ||
+    "Documento";
 
-    let content = "";
+    let pages = "";
 
     document
     .querySelectorAll(
-        ".editor"
+        ".editor-page"
     )
-    .forEach(editor=>{
+    .forEach(
+        page => {
 
-        content += `
+            pages += `
+            <div style="
+                page-break-after:always;
+                min-height:1000px;
+            ">
+                ${page.innerHTML}
+            </div>
+            `;
+        }
+    );
 
-        <div style="
-        page-break-after:always;
-        min-height:1000px;
-        ">
-            ${editor.innerHTML}
-        </div>
+    const html = `
 
-        `;
-    });
-
-    const html =
-
-`<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 
@@ -252,13 +405,14 @@ ${title}
 </title>
 
 </head>
-
 <body>
 
-${content}
+${pages}
 
 </body>
-</html>`;
+</html>
+
+`;
 
     const blob =
     new Blob(
@@ -285,64 +439,92 @@ ${content}
     a.click();
 }
 
+// =========================
+// ESTATÍSTICAS
+// =========================
+
 function updateStats(){
 
-    let fullText = "";
+    let text = "";
 
     document
     .querySelectorAll(
-        ".editor"
+        ".editor-page"
     )
-    .forEach(editor=>{
+    .forEach(
+        page => {
 
-        fullText +=
-        editor.innerText +
-        " ";
-    });
+            text +=
+            page.innerText +
+            " ";
+        }
+    );
 
-    fullText =
-    fullText.trim();
+    text =
+    text.trim();
 
     const words =
 
-    fullText === ""
+    text === ""
 
     ? 0
 
-    : fullText
+    : text
       .split(/\s+/)
       .length;
 
     const chars =
-    fullText.length;
+    text.length;
 
-    document
-    .getElementById(
-        "wordCount"
-    )
-    .textContent =
-
+    wordCount.textContent =
     `${words} palavras`;
 
-    document
-    .getElementById(
-        "charCount"
-    )
-    .textContent =
-
+    charCount.textContent =
     `${chars} caracteres`;
+
+    const pages =
+    document.querySelectorAll(
+        ".paper"
+    ).length;
+
+    pageCount.textContent =
+
+    pages === 1
+
+    ? "1 página"
+
+    : `${pages} páginas`;
 }
 
-document
-.querySelectorAll(
-    ".editor"
-)
-.forEach(editor=>{
+// =========================
+// EDITORES
+// =========================
+
+function bindEditor(
+    editor
+){
 
     editor.addEventListener(
         "input",
         updateStats
     );
-});
+}
+
+// =========================
+// INICIALIZAÇÃO
+// =========================
+
+document
+.querySelectorAll(
+    ".editor-page"
+)
+.forEach(
+    editor => {
+
+        bindEditor(
+            editor
+        );
+    }
+);
 
 updateStats();
