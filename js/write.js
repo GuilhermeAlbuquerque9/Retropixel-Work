@@ -528,3 +528,26 @@ document
 );
 
 updateStats();
+
+function deletePage(){
+
+    const pages =
+    document.querySelectorAll(
+        ".paper"
+    );
+
+    if(pages.length <= 1){
+
+        alert(
+            "O documento precisa ter pelo menos uma página."
+        );
+
+        return;
+    }
+
+    pages[
+        pages.length - 1
+    ].remove();
+
+    updateStats();
+}
