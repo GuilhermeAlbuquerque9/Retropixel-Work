@@ -49,20 +49,31 @@
     <div class="group">
 
         <button onclick="newDocument()">
-            📄 Novo
-        </button>
+    📄 Novo
+</button>
 
-        <button onclick="saveDocument()">
-            💾 TXT
-        </button>
+<button onclick="openDocument()">
+    📂 Abrir
+</button>
 
-        <button onclick="saveHTML()">
-            🌐 HTML
-        </button>
+<button onclick="saveDocument()">
+    💾 Salvar
+</button>
 
-        <button onclick="addPage()">
-            ➕ Página
-        </button>
+<button onclick="addPage()">
+    ➕ Página
+</button>
+
+<button onclick="deletePage()">
+    🗑 Página
+</button>
+
+<input
+    type="file"
+    id="fileOpen"
+    hidden
+    accept=".txt,.html,.rpw"
+>
 
     </div>
 
