@@ -20,7 +20,9 @@
 
     <div class="write-logo">
 
-        <img src="assets/icons/Write_icon.png" alt="Write">
+        <img
+            src="assets/icons/Write_icon.png"
+            alt="Write">
 
         <div>
 
@@ -47,27 +49,19 @@
     <div class="group">
 
         <button onclick="newDocument()">
-
             📄 Novo
-
         </button>
 
         <button onclick="saveDocument()">
-
             💾 TXT
-
         </button>
 
         <button onclick="saveHTML()">
-
             🌐 HTML
-
         </button>
 
         <button onclick="addPage()">
-
             ➕ Página
-
         </button>
 
     </div>
@@ -75,8 +69,7 @@
     <div class="group">
 
         <select
-            id="fontName"
-            onchange="changeFont()">
+            id="fontName">
 
             <option value="Arial">
                 Arial
@@ -94,6 +87,10 @@
                 Trebuchet MS
             </option>
 
+            <option value="Segoe UI">
+                Segoe UI
+            </option>
+
             <option value="Georgia">
                 Georgia
             </option>
@@ -106,36 +103,23 @@
                 Courier New
             </option>
 
-            <option value="Segoe UI">
-                Segoe UI
-            </option>
-
         </select>
 
         <select
-            id="fontSize"
-            onchange="changeSize()">
+            id="fontSize">
 
-            <option value="8">8</option>
-            <option value="10">10</option>
-            <option value="12">12</option>
-
-            <option
-                value="14"
-                selected>
-
-                14
-
-            </option>
-
-            <option value="16">16</option>
-            <option value="18">18</option>
-            <option value="20">20</option>
-            <option value="24">24</option>
-            <option value="28">28</option>
-            <option value="32">32</option>
-            <option value="48">48</option>
-            <option value="72">72</option>
+            <option>8</option>
+            <option>10</option>
+            <option>12</option>
+            <option selected>14</option>
+            <option>16</option>
+            <option>18</option>
+            <option>20</option>
+            <option>24</option>
+            <option>28</option>
+            <option>32</option>
+            <option>48</option>
+            <option>72</option>
 
         </select>
 
@@ -144,24 +128,24 @@
     <div class="group">
 
         <button
-            class="toggle-btn"
-            onclick="toggleFormat(this,'bold')">
+            id="boldBtn"
+            class="toggle-btn">
 
             <b>B</b>
 
         </button>
 
         <button
-            class="toggle-btn"
-            onclick="toggleFormat(this,'italic')">
+            id="italicBtn"
+            class="toggle-btn">
 
             <i>I</i>
 
         </button>
 
         <button
-            class="toggle-btn"
-            onclick="toggleFormat(this,'underline')">
+            id="underlineBtn"
+            class="toggle-btn">
 
             <u>U</u>
 
@@ -171,28 +155,16 @@
 
     <div class="group">
 
-        <button
-            class="toggle-btn"
-            onclick="toggleFormat(this,'justifyLeft')">
-
+        <button id="leftBtn">
             ⬅
-
         </button>
 
-        <button
-            class="toggle-btn"
-            onclick="toggleFormat(this,'justifyCenter')">
-
+        <button id="centerBtn">
             ↔
-
         </button>
 
-        <button
-            class="toggle-btn"
-            onclick="toggleFormat(this,'justifyRight')">
-
+        <button id="rightBtn">
             ➡
-
         </button>
 
     </div>
@@ -201,17 +173,14 @@
 
         <input
             type="color"
-            id="textColor"
-            onchange="changeColor()">
+            id="textColor">
 
     </div>
 
     <div class="group">
 
         <button onclick="insertDate()">
-
             📅 Data
-
         </button>
 
     </div>
@@ -230,8 +199,7 @@
                 placeholder="Documento sem título">
 
             <div
-                class="editor"
-                id="editor"
+                class="editor-page"
                 contenteditable="true">
 
             </div>
@@ -245,15 +213,15 @@
 <footer class="status-bar">
 
     <span id="wordCount">
-
         0 palavras
-
     </span>
 
     <span id="charCount">
-
         0 caracteres
+    </span>
 
+    <span id="pageCount">
+        1 página
     </span>
 
 </footer>
