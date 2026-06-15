@@ -32,8 +32,12 @@
 
     </div>
 
-    <button class="home-btn" onclick="location.href='index.html'">
+    <button
+        class="home-btn"
+        onclick="location.href='index.html'">
+
         🏠 Início
+
     </button>
 
 </header>
@@ -42,35 +46,96 @@
 
     <div class="group">
 
-        <button onclick="newDocument()">📄 Novo</button>
+        <button onclick="newDocument()">
 
-        <button onclick="saveDocument()">💾 TXT</button>
+            📄 Novo
 
-        <button onclick="saveHTML()">🌐 HTML</button>
+        </button>
+
+        <button onclick="saveDocument()">
+
+            💾 TXT
+
+        </button>
+
+        <button onclick="saveHTML()">
+
+            🌐 HTML
+
+        </button>
+
+        <button onclick="addPage()">
+
+            ➕ Página
+
+        </button>
 
     </div>
 
     <div class="group">
 
-        <select id="fontName" onchange="changeFont()">
+        <select
+            id="fontName"
+            onchange="changeFont()">
 
-            <option>Arial</option>
-            <option>Verdana</option>
-            <option>Tahoma</option>
-            <option>Georgia</option>
-            <option>Courier New</option>
+            <option value="Arial">
+                Arial
+            </option>
+
+            <option value="Verdana">
+                Verdana
+            </option>
+
+            <option value="Tahoma">
+                Tahoma
+            </option>
+
+            <option value="Trebuchet MS">
+                Trebuchet MS
+            </option>
+
+            <option value="Georgia">
+                Georgia
+            </option>
+
+            <option value="Times New Roman">
+                Times New Roman
+            </option>
+
+            <option value="Courier New">
+                Courier New
+            </option>
+
+            <option value="Segoe UI">
+                Segoe UI
+            </option>
 
         </select>
 
-        <select id="fontSize" onchange="changeSize()">
+        <select
+            id="fontSize"
+            onchange="changeSize()">
 
-            <option>1</option>
-            <option>2</option>
-            <option selected>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
+            <option value="8">8</option>
+            <option value="10">10</option>
+            <option value="12">12</option>
+
+            <option
+                value="14"
+                selected>
+
+                14
+
+            </option>
+
+            <option value="16">16</option>
+            <option value="18">18</option>
+            <option value="20">20</option>
+            <option value="24">24</option>
+            <option value="28">28</option>
+            <option value="32">32</option>
+            <option value="48">48</option>
+            <option value="72">72</option>
 
         </select>
 
@@ -78,21 +143,57 @@
 
     <div class="group">
 
-        <button onclick="format('bold')"><b>B</b></button>
+        <button
+            class="toggle-btn"
+            onclick="toggleFormat(this,'bold')">
 
-        <button onclick="format('italic')"><i>I</i></button>
+            <b>B</b>
 
-        <button onclick="format('underline')"><u>U</u></button>
+        </button>
+
+        <button
+            class="toggle-btn"
+            onclick="toggleFormat(this,'italic')">
+
+            <i>I</i>
+
+        </button>
+
+        <button
+            class="toggle-btn"
+            onclick="toggleFormat(this,'underline')">
+
+            <u>U</u>
+
+        </button>
 
     </div>
 
     <div class="group">
 
-        <button onclick="format('justifyLeft')">⬅</button>
+        <button
+            class="toggle-btn"
+            onclick="toggleFormat(this,'justifyLeft')">
 
-        <button onclick="format('justifyCenter')">↔</button>
+            ⬅
 
-        <button onclick="format('justifyRight')">➡</button>
+        </button>
+
+        <button
+            class="toggle-btn"
+            onclick="toggleFormat(this,'justifyCenter')">
+
+            ↔
+
+        </button>
+
+        <button
+            class="toggle-btn"
+            onclick="toggleFormat(this,'justifyRight')">
+
+            ➡
+
+        </button>
 
     </div>
 
@@ -108,7 +209,9 @@
     <div class="group">
 
         <button onclick="insertDate()">
+
             📅 Data
+
         </button>
 
     </div>
@@ -117,17 +220,23 @@
 
 <main class="editor-container">
 
-    <div class="paper">
+    <div id="pagesContainer">
 
-        <input
-            id="documentTitle"
-            class="document-title"
-            placeholder="Documento sem título">
+        <div class="paper">
 
-        <div
-            id="editor"
-            class="editor"
-            contenteditable="true"></div>
+            <input
+                id="documentTitle"
+                class="document-title"
+                placeholder="Documento sem título">
+
+            <div
+                class="editor"
+                id="editor"
+                contenteditable="true">
+
+            </div>
+
+        </div>
 
     </div>
 
@@ -136,11 +245,15 @@
 <footer class="status-bar">
 
     <span id="wordCount">
+
         0 palavras
+
     </span>
 
     <span id="charCount">
+
         0 caracteres
+
     </span>
 
 </footer>
