@@ -3,126 +3,81 @@
 // =========================
 
 const pagesContainer =
-document.getElementById(
-    "pagesContainer"
-);
+document.getElementById("pagesContainer");
 
 const wordCount =
-document.getElementById(
-    "wordCount"
-);
+document.getElementById("wordCount");
 
 const charCount =
-document.getElementById(
-    "charCount"
-);
+document.getElementById("charCount");
 
 const pageCount =
-document.getElementById(
-    "pageCount"
-);
+document.getElementById("pageCount");
 
 const fontName =
-document.getElementById(
-    "fontName"
-);
+document.getElementById("fontName");
 
 const fontSize =
-document.getElementById(
-    "fontSize"
-);
+document.getElementById("fontSize");
 
 const textColor =
-document.getElementById(
-    "textColor"
-);
-
-// =========================
-// TOGGLE
-// =========================
-
-const boldBtn =
-document.getElementById(
-    "boldBtn"
-);
-
-const italicBtn =
-document.getElementById(
-    "italicBtn"
-);
-
-const underlineBtn =
-document.getElementById(
-    "underlineBtn"
-);
+document.getElementById("textColor");
 
 // =========================
 // FORMATAÇÃO
 // =========================
 
-boldBtn.onclick = () => {
+document.getElementById("boldBtn")
+.addEventListener("click", function(){
 
-    document.execCommand(
-        "bold"
-    );
+    document.execCommand("bold");
 
-    boldBtn.classList.toggle(
-        "active"
-    );
-};
+    this.classList.toggle("active");
+});
 
-italicBtn.onclick = () => {
+document.getElementById("italicBtn")
+.addEventListener("click", function(){
 
-    document.execCommand(
-        "italic"
-    );
+    document.execCommand("italic");
 
-    italicBtn.classList.toggle(
-        "active"
-    );
-};
+    this.classList.toggle("active");
+});
 
-underlineBtn.onclick = () => {
+document.getElementById("underlineBtn")
+.addEventListener("click", function(){
 
-    document.execCommand(
-        "underline"
-    );
+    document.execCommand("underline");
 
-    underlineBtn.classList.toggle(
-        "active"
-    );
-};
+    this.classList.toggle("active");
+});
 
 // =========================
 // ALINHAMENTO
 // =========================
 
-document
-.getElementById("leftBtn")
-.onclick = () => {
+document.getElementById("leftBtn")
+.addEventListener("click", ()=>{
 
     document.execCommand(
         "justifyLeft"
     );
-};
+});
 
-document
-.getElementById("centerBtn")
-.onclick = () => {
+document.getElementById("centerBtn")
+.addEventListener("click", ()=>{
 
     document.execCommand(
         "justifyCenter"
     );
-};
+});
 
-document
-.getElementById("rightBtn")
-.onclick = () => {
+document.getElementById("rightBtn")
+.addEventListener("click", ()=>{
 
     document.execCommand(
         "justifyRight"
     );
-};
+});
 
 // =========================
 // FONTE
@@ -130,13 +85,21 @@ document
 
 fontName.addEventListener(
     "change",
-    () => {
+    ()=>{
 
         document.execCommand(
             "fontName",
             false,
             fontName.value
         );
+
+        document.querySelectorAll(
+            ".editor-page"
+        ).forEach(page=>{
+
+            page.style.fontFamily =
+            fontName.value;
+        });
     }
 );
 
@@ -146,49 +109,15 @@ fontName.addEventListener(
 
 fontSize.addEventListener(
     "change",
-    () => {
+    ()=>{
 
-        const px =
-        fontSize.value;
+        document.querySelectorAll(
+            ".editor-page"
+        ).forEach(page=>{
 
-        document.execCommand(
-            "styleWithCSS",
-            false,
-            true
-        );
-
-        document.execCommand(
-            "fontSize",
-            false,
-            7
-        );
-
-        const fonts =
-        document.getElementsByTagName(
-            "font"
-        );
-
-        for(
-            let i = 0;
-            i < fonts.length;
-            i++
-        ){
-
-            if(
-                fonts[i].size === "7"
-            ){
-
-                fonts[i]
-                .removeAttribute(
-                    "size"
-                );
-
-                fonts[i]
-                .style
-                .fontSize =
-                px + "px";
-            }
-        }
+            page.style.fontSize =
+            fontSize.value + "px";
+        });
     }
 );
 
@@ -198,7 +127,7 @@ fontSize.addEventListener(
 
 textColor.addEventListener(
     "change",
-    () => {
+    ()=>{
 
         document.execCommand(
             "foreColor",
@@ -216,9 +145,7 @@ function insertDate(){
 
     const date =
     new Date()
-    .toLocaleString(
-        "pt-BR"
-    );
+    .toLocaleString("pt-BR");
 
     document.execCommand(
         "insertText",
@@ -236,9 +163,7 @@ function insertDate(){
 function addPage(){
 
     const paper =
-    document.createElement(
-        "div"
-    );
+    document.createElement("div");
 
     paper.className =
     "paper";
@@ -253,18 +178,41 @@ function addPage(){
     `;
 
     pagesContainer
-    .appendChild(
-        paper
-    );
+    .appendChild(paper);
 
     const editor =
     paper.querySelector(
         ".editor-page"
     );
 
-    bindEditor(
-        editor
+    bindEditor(editor);
+
+    updateStats();
+}
+
+// =========================
+// DELETAR PÁGINA
+// =========================
+
+function deletePage(){
+
+    const pages =
+    document.querySelectorAll(
+        ".paper"
     );
+
+    if(pages.length <= 1){
+
+        alert(
+            "O documento precisa ter pelo menos uma página."
+        );
+
+        return;
+    }
+
+    pages[
+        pages.length - 1
+    ].remove();
 
     updateStats();
 }
@@ -306,40 +254,106 @@ function newDocument(){
         ".editor-page"
     );
 
-    bindEditor(
-        editor
-    );
+    bindEditor(editor);
 
     updateStats();
 }
 
 // =========================
-// TXT
+// ABRIR ARQUIVO
+// =========================
+
+function openDocument(){
+
+    document
+    .getElementById(
+        "fileOpen"
+    )
+    .click();
+}
+
+document
+.getElementById(
+    "fileOpen"
+)
+.addEventListener(
+    "change",
+    event=>{
+
+        const file =
+        event.target.files[0];
+
+        if(!file) return;
+
+        const reader =
+        new FileReader();
+
+        reader.onload =
+        function(){
+
+            const editor =
+            document.querySelector(
+                ".editor-page"
+            );
+
+            editor.innerHTML =
+            reader.result;
+
+            updateStats();
+        };
+
+        reader.readAsText(file);
+    }
+);
+
+// =========================
+// SALVAR
 // =========================
 
 function saveDocument(){
 
-    let content = "";
+    const formato =
+    prompt(
+`Escolha o formato:
+
+TXT
+HTML
+RPW
+PDF`
+    );
+
+    if(!formato) return;
+
+    const tipo =
+    formato
+    .toLowerCase()
+    .trim();
+
+    if(tipo === "pdf"){
+
+        window.print();
+
+        return;
+    }
+
+    let conteudo = "";
 
     document
     .querySelectorAll(
         ".editor-page"
     )
-    .forEach(
-        page => {
+    .forEach(page=>{
 
-            content +=
-            page.innerText +
-            "\n\n";
-        }
-    );
+        conteudo +=
+        page.innerHTML +
+        "\n\n";
+    });
 
     const blob =
     new Blob(
-        [content],
+        [conteudo],
         {
-            type:
-            "text/plain"
+            type:"text/plain"
         }
     );
 
@@ -354,87 +368,8 @@ function saveDocument(){
     );
 
     a.download =
-    "documento.txt";
-
-    a.click();
-}
-
-// =========================
-// HTML
-// =========================
-
-function saveHTML(){
-
-    const title =
-    document
-    .getElementById(
-        "documentTitle"
-    )?.value ||
-    "Documento";
-
-    let pages = "";
-
-    document
-    .querySelectorAll(
-        ".editor-page"
-    )
-    .forEach(
-        page => {
-
-            pages += `
-            <div style="
-                page-break-after:always;
-                min-height:1000px;
-            ">
-                ${page.innerHTML}
-            </div>
-            `;
-        }
-    );
-
-    const html = `
-
-<!DOCTYPE html>
-<html>
-<head>
-
-<meta charset="UTF-8">
-
-<title>
-${title}
-</title>
-
-</head>
-<body>
-
-${pages}
-
-</body>
-</html>
-
-`;
-
-    const blob =
-    new Blob(
-        [html],
-        {
-            type:
-            "text/html"
-        }
-    );
-
-    const a =
-    document.createElement(
-        "a"
-    );
-
-    a.href =
-    URL.createObjectURL(
-        blob
-    );
-
-    a.download =
-    "documento.html";
+    "documento." +
+    tipo;
 
     a.click();
 }
@@ -451,14 +386,12 @@ function updateStats(){
     .querySelectorAll(
         ".editor-page"
     )
-    .forEach(
-        page => {
+    .forEach(page=>{
 
-            text +=
-            page.innerText +
-            " ";
-        }
-    );
+        text +=
+        page.innerText +
+        " ";
+    });
 
     text =
     text.trim();
@@ -500,9 +433,7 @@ function updateStats(){
 // EDITORES
 // =========================
 
-function bindEditor(
-    editor
-){
+function bindEditor(editor){
 
     editor.addEventListener(
         "input",
@@ -518,36 +449,9 @@ document
 .querySelectorAll(
     ".editor-page"
 )
-.forEach(
-    editor => {
+.forEach(editor=>{
 
-        bindEditor(
-            editor
-        );
-    }
-);
+    bindEditor(editor);
+});
 
 updateStats();
-
-function deletePage(){
-
-    const pages =
-    document.querySelectorAll(
-        ".paper"
-    );
-
-    if(pages.length <= 1){
-
-        alert(
-            "O documento precisa ter pelo menos uma página."
-        );
-
-        return;
-    }
-
-    pages[
-        pages.length - 1
-    ].remove();
-
-    updateStats();
-}
