@@ -1,3 +1,7 @@
+/* =========================
+   TOPO
+========================= */
+
 .write-top{
 
     height:90px;
@@ -15,7 +19,8 @@
         #ffd94d
     );
 
-    border-bottom:1px solid #caa940;
+    border-bottom:
+    1px solid #caa940;
 }
 
 .write-logo{
@@ -50,12 +55,35 @@
     );
 }
 
-/* Ribbon */
+/* =========================
+   FUNDO AERO
+========================= */
+
+body{
+
+    min-height:100vh;
+
+    background:
+    linear-gradient(
+        to bottom,
+        #dff4ff 0%,
+        #c9eeff 20%,
+        #c8ffd7 60%,
+        #f2fdff 100%
+    );
+
+    background-attachment:fixed;
+}
+
+/* =========================
+   RIBBON
+========================= */
 
 .ribbon{
 
     display:flex;
     flex-wrap:wrap;
+
     gap:10px;
 
     padding:10px;
@@ -67,7 +95,8 @@
         #ffe173
     );
 
-    border-bottom:1px solid #caa940;
+    border-bottom:
+    1px solid #caa940;
 }
 
 .group{
@@ -92,14 +121,14 @@
 
     cursor:pointer;
 
+    transition:.15s;
+
     background:
     linear-gradient(
         to bottom,
         white,
-        #efefef
+        #ececec
     );
-
-    transition:.2s;
 }
 
 .ribbon button:hover{
@@ -107,29 +136,28 @@
     background:
     linear-gradient(
         to bottom,
-        #fff8cc,
-        #ffd24d
+        #fff4c4,
+        #ffd44d
     );
 }
 
 .toggle-btn.active{
 
+    color:white;
+
     background:
     linear-gradient(
         to bottom,
-        #ffd978,
-        #ff9900
+        #ffcc5c,
+        #ff8c00
     ) !important;
 
-    color:white;
-
     box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.7),
-    0 0 8px rgba(255,170,0,.5);
+    inset 0 1px 0 rgba(255,255,255,.5),
+    0 0 10px rgba(255,170,0,.4);
 }
 
-.ribbon select,
-.ribbon input[type="color"]{
+.ribbon select{
 
     height:36px;
 
@@ -140,25 +168,22 @@
     padding:0 8px;
 }
 
-/* Fundo Aero contínuo */
+.ribbon input[type="color"]{
 
-body{
+    width:42px;
 
-    min-height:100vh;
+    height:36px;
 
-    background:
-    linear-gradient(
-        to bottom,
-        #dff4ff 0%,
-        #bde8ff 35%,
-        #c8ffd7 70%,
-        #eefcff 100%
-    );
+    border:none;
 
-    background-attachment:fixed;
+    cursor:pointer;
+
+    border-radius:8px;
 }
 
-/* Área das páginas */
+/* =========================
+   ÁREA DO DOCUMENTO
+========================= */
 
 .editor-container{
 
@@ -181,7 +206,9 @@ body{
     gap:40px;
 }
 
-/* Folhas */
+/* =========================
+   PÁGINAS
+========================= */
 
 .paper{
 
@@ -189,20 +216,14 @@ body{
 
     min-height:1200px;
 
-    background:
-    linear-gradient(
-        to bottom,
-        white,
-        #fcfcfc
-    );
+    background:white;
 
     border-radius:10px;
 
     padding:40px;
 
     box-shadow:
-    0 8px 24px rgba(0,0,0,.18),
-    inset 0 1px 0 white;
+    0 8px 24px rgba(0,0,0,.18);
 
     position:relative;
 }
@@ -219,15 +240,20 @@ body{
 
     height:12px;
 
-    border-radius:10px 10px 0 0;
+    border-radius:
+    10px 10px 0 0;
 
     background:
     linear-gradient(
         to bottom,
-        rgba(255,255,255,.95),
+        rgba(255,255,255,.9),
         transparent
     );
 }
+
+/* =========================
+   TÍTULO
+========================= */
 
 .document-title{
 
@@ -246,24 +272,38 @@ body{
     background:transparent;
 }
 
-.editor{
+/* =========================
+   EDITOR
+========================= */
 
-    min-height:950px;
+.editor-page{
+
+    min-height:980px;
 
     outline:none;
 
     line-height:1.7;
 
     font-size:14px;
+
+    word-wrap:break-word;
+
+    overflow-wrap:break-word;
+
+    white-space:pre-wrap;
 }
 
-/* Barra inferior */
+/* =========================
+   RODAPÉ
+========================= */
 
 .status-bar{
 
     display:flex;
 
     justify-content:space-between;
+
+    align-items:center;
 
     padding:12px 20px;
 
@@ -278,7 +318,9 @@ body{
     1px solid #a6c0db;
 }
 
-/* Responsivo */
+/* =========================
+   RESPONSIVO
+========================= */
 
 @media(max-width:1000px){
 
