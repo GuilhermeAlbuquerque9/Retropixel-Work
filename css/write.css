@@ -9,13 +9,9 @@
     padding:0 20px;
 
     background:
-    linear-gradient(
-        to bottom,
-        #ffffff,
-        #dbeeff
-    );
+    linear-gradient( to bottom, #fff6c9, #ffd94d );
 
-    border-bottom:1px solid #8eb7dc;
+    border-bottom:1px solid #caa940;
 }
 
 .write-logo{
@@ -56,11 +52,7 @@
     padding:10px;
 
     background:
-    linear-gradient(
-        to bottom,
-        #fff8d5,
-        #ffe173
-    );
+    linear-gradient( to bottom, #fff8d5, #ffe173 );
 
     border-bottom:1px solid #caa940;
 }
