@@ -9,7 +9,7 @@
     padding:0 20px;
 
     background:
-    linear-gradient( to bottom, #9eff8a, #42be1f );
+    linear-gradient( to bottom, #f1ffef, #4fd828 );
 
     border-bottom:1px solid #0f0;
 }
@@ -52,7 +52,7 @@
     padding:10px;
 
     background:
-    linear-gradient( to bottom, #92e592, #3dd23d );
+    linear-gradient( to bottom, #c4ffc4, #3dd23d );
 
     border-bottom:1px solid #9dc99d;
 }
