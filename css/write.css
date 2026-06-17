@@ -64,13 +64,7 @@ body{
     min-height:100vh;
 
     background:
-    linear-gradient(
-        to bottom,
-        #dff4ff 0%,
-        #c9eeff 20%,
-        #c8ffd7 60%,
-        #f2fdff 100%
-    );
+    linear-gradient( to bottom, #89d4fb 0%, #afd5f6 20%, #82afe9 60%, #f2fdff 100% );
 
     background-attachment:fixed;
 }
