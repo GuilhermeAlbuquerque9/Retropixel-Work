@@ -60,6 +60,10 @@
         ➕ Adicionar
     </button>
 
+    <button onclick="openCalendar()">
+        📅 Calendário
+    </button>
+
 </section>
 
 <section class="search-area">
@@ -104,6 +108,104 @@
     <div id="taskList"></div>
 
 </main>
+
+<!-- CALENDÁRIO -->
+
+<div
+    id="calendarModal"
+    class="calendar-modal">
+
+    <div class="calendar-window">
+
+        <div class="calendar-header">
+
+            <h2>
+                📅 Calendário
+            </h2>
+
+            <button
+                onclick="closeCalendar()">
+
+                ✖
+
+            </button>
+
+        </div>
+
+        <div class="calendar-nav">
+
+            <button onclick="previousMonth()">
+                ◀
+            </button>
+
+            <h3 id="calendarTitle">
+                Junho 2026
+            </h3>
+
+            <button onclick="nextMonth()">
+                ▶
+            </button>
+
+        </div>
+
+        <div class="calendar-weekdays">
+
+            <div>Dom</div>
+            <div>Seg</div>
+            <div>Ter</div>
+            <div>Qua</div>
+            <div>Qui</div>
+            <div>Sex</div>
+            <div>Sáb</div>
+
+        </div>
+
+        <div
+            id="calendarGrid"
+            class="calendar-grid">
+
+        </div>
+
+        <div
+            id="eventEditor"
+            class="event-editor">
+
+            <h3>
+                Evento
+            </h3>
+
+            <input
+                type="text"
+                id="eventTitle"
+                placeholder="Título">
+
+            <textarea
+                id="eventDescription"
+                placeholder="Descrição"></textarea>
+
+            <div class="event-buttons">
+
+                <button
+                    onclick="saveEvent()">
+
+                    💾 Salvar
+
+                </button>
+
+                <button
+                    onclick="deleteEvent()">
+
+                    🗑 Excluir
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
 <script src="js/tasks.js"></script>
 
