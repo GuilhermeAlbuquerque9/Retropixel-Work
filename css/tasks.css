@@ -50,9 +50,7 @@
     );
 }
 
-/* =====================
-   TOOLBAR
-===================== */
+/* TOOLBAR */
 
 .task-toolbar{
 
@@ -97,25 +95,9 @@
         #ffffff,
         #dddddd
     );
-
-    box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.9),
-    0 2px 4px rgba(0,0,0,.15);
 }
 
-.task-toolbar button:hover{
-
-    background:
-    linear-gradient(
-        to bottom,
-        #fff9d4,
-        #ffd86b
-    );
-}
-
-/* =====================
-   BUSCA
-===================== */
+/* BUSCA */
 
 .search-area{
 
@@ -133,9 +115,7 @@
     border:1px solid #ccc;
 }
 
-/* =====================
-   ESTATÍSTICAS
-===================== */
+/* ESTATÍSTICAS */
 
 .stats{
 
@@ -170,9 +150,7 @@
     0 4px 10px rgba(0,0,0,.18);
 }
 
-/* =====================
-   LISTA
-===================== */
+/* LISTA */
 
 main{
 
@@ -199,9 +177,6 @@ main{
         #ffffff,
         #eefdee
     );
-
-    box-shadow:
-    0 2px 8px rgba(0,0,0,.08);
 }
 
 .task.completed{
@@ -234,9 +209,7 @@ main{
     6px solid #4dcf6f;
 }
 
-/* =====================
-   MODAL CALENDÁRIO
-===================== */
+/* CALENDÁRIO */
 
 .calendar-modal{
 
@@ -263,10 +236,6 @@ main{
     display:flex;
 }
 
-/* =====================
-   JANELA AERO
-===================== */
-
 .calendar-window{
 
     width:650px;
@@ -277,9 +246,9 @@ main{
 
     overflow-y:auto;
 
-    border-radius:20px;
+    overflow-x:hidden;
 
-    overflow:hidden;
+    border-radius:20px;
 
     background:
     linear-gradient(
@@ -293,33 +262,7 @@ main{
 
     box-shadow:
     0 12px 30px rgba(0,0,0,.35);
-
-    animation:
-    calendarOpen .25s ease;
 }
-
-@keyframes calendarOpen{
-
-    from{
-
-        opacity:0;
-
-        transform:
-        scale(.95);
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:
-        scale(1);
-    }
-}
-
-/* =====================
-   TOPO CALENDÁRIO
-===================== */
 
 .calendar-header{
 
@@ -339,6 +282,12 @@ main{
         #8fd9ff,
         #1f8fd9
     );
+
+    position:sticky;
+
+    top:0;
+
+    z-index:20;
 }
 
 .calendar-header button{
@@ -351,18 +300,7 @@ main{
     border-radius:10px;
 
     cursor:pointer;
-
-    background:
-    linear-gradient(
-        to bottom,
-        #ffffff,
-        #d9ecff
-    );
 }
-
-/* =====================
-   NAVEGAÇÃO
-===================== */
 
 .calendar-nav{
 
@@ -380,11 +318,12 @@ main{
         #f7fcff,
         #dcefff
     );
-}
 
-.calendar-nav h3{
+    position:sticky;
 
-    font-size:18px;
+    top:58px;
+
+    z-index:19;
 }
 
 .calendar-nav button{
@@ -397,22 +336,7 @@ main{
     border-radius:10px;
 
     cursor:pointer;
-
-    background:
-    linear-gradient(
-        to bottom,
-        #ffffff,
-        #d9ecff
-    );
-
-    box-shadow:
-    inset 0 1px 0 white,
-    0 2px 4px rgba(0,0,0,.15);
 }
-
-/* =====================
-   DIAS DA SEMANA
-===================== */
 
 .calendar-weekdays{
 
@@ -436,10 +360,6 @@ main{
         #d7ecff
     );
 }
-
-/* =====================
-   GRADE
-===================== */
 
 .calendar-grid{
 
@@ -493,6 +413,23 @@ main{
     );
 }
 
+.calendar-day.selected{
+
+    background:
+    linear-gradient(
+        to bottom,
+        #fff0b0,
+        #ffb347
+    ) !important;
+
+    border:
+    1px solid #e38a00;
+
+    box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.8),
+    0 0 10px rgba(255,170,0,.4);
+}
+
 .calendar-day.has-event::after{
 
     content:"";
@@ -508,16 +445,11 @@ main{
     border-radius:50%;
 
     background:#3ec93e;
-
-    box-shadow:
-    0 0 6px #3ec93e;
 }
 
-/* =====================
-   EVENTOS
-===================== */
-
 .event-editor{
+
+    display:none;
 
     padding:15px;
 
@@ -532,9 +464,9 @@ main{
     );
 }
 
-.event-editor h3{
+.event-editor.show{
 
-    margin-bottom:10px;
+    display:block;
 }
 
 .event-editor input,
@@ -577,32 +509,7 @@ main{
     border-radius:10px;
 
     cursor:pointer;
-
-    background:
-    linear-gradient(
-        to bottom,
-        #ffffff,
-        #d9ecff
-    );
-
-    box-shadow:
-    inset 0 1px 0 white,
-    0 2px 4px rgba(0,0,0,.15);
 }
-
-.event-buttons button:hover{
-
-    background:
-    linear-gradient(
-        to bottom,
-        #fff4c4,
-        #ffd64d
-    );
-}
-
-/* =====================
-   RESPONSIVO
-===================== */
 
 @media(max-width:700px){
 
@@ -617,10 +524,4 @@ main{
 
         font-size:12px;
     }
-
-    .calendar-nav h3{
-
-        font-size:16px;
-    }
-
 }
