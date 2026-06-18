@@ -216,6 +216,16 @@ function openCalendar(){
         "show"
     );
 
+    selectedDate = null;
+
+    document
+    .getElementById(
+        "eventEditor"
+    )
+    .classList.remove(
+        "show"
+    );
+
     renderCalendar();
 }
 
@@ -346,6 +356,15 @@ function renderCalendar(){
             );
         }
 
+        if(
+            selectedDate === key
+        ){
+
+            div.classList.add(
+                "selected"
+            );
+        }
+
         div.textContent =
         day;
 
@@ -368,6 +387,14 @@ function selectDate(date){
     selectedDate =
     date;
 
+    document
+    .getElementById(
+        "eventEditor"
+    )
+    .classList.add(
+        "show"
+    );
+
     const event =
     events[date];
 
@@ -388,6 +415,8 @@ function selectDate(date){
     event
     ? event.description
     : "";
+
+    renderCalendar();
 }
 
 function saveEvent(){
@@ -443,17 +472,13 @@ function saveEvent(){
 
 function deleteEvent(){
 
-    if(!selectedDate){
-
-        return;
-    }
+    if(
+        !selectedDate
+    ) return;
 
     if(
         !events[selectedDate]
-    ){
-
-        return;
-    }
+    ) return;
 
     if(
         confirm(
