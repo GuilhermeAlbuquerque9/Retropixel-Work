@@ -14,60 +14,25 @@ html{
     height:100%;
 }
 
-body{
-
-    min-height:100vh;
-
-    background:
-
-    radial-gradient(
-        circle at top,
-        rgba(255,255,255,.95),
-        transparent 40%
-    ),
-
-    linear-gradient(
-        to bottom,
-        #e8f3ff 0%,
-        #c7def7 18%,
-        #a6caef 45%,
-        #8ab8e8 70%,
-        #76aae1 100%
-    );
-
-    color:#244c74;
-}
+body{min-height:100vh;background: radial-gradient(circle at top, rgba(255, 255, 255, .95), #00000000 40%), linear-gradient(to bottom, #e8f3ff 0%, #ffffa4 18%, #ffeab8 45%, #f5d356 70%, #ffd825 100%);color:#244c74;}
 
 /* ==========================
    TOPO
 ========================== */
 
 .topbar{
-
     height:108px;
-
     display:flex;
     align-items:center;
     justify-content:space-between;
-
     padding:0 24px;
-
-    background:
-
-    linear-gradient(
-        to bottom,
-        rgba(255,255,255,.95) 0%,
-        rgba(236,244,252,.95) 30%,
-        rgba(214,229,246,.95) 100%
-    );
-
+    background: linear-gradient(to bottom, rgba(255, 255, 255, .95) 0%, rgb(255 222 148 / 95%) 30%, rgb(255 195 53 / 95%) 100%);
     border-bottom:1px solid #8db4da;
-
     box-shadow:
     inset 0 1px 0 white,
     inset 0 -1px 0 rgba(255,255,255,.7),
     0 2px 6px rgba(0,0,0,.12);
-}
+    }
 
 .logo-area{
 
@@ -151,31 +116,10 @@ main{
 ========================== */
 
 .welcome-card,
-.recent-card{
-
-    position:relative;
-
-    margin-bottom:24px;
-
-    padding:24px;
-
-    border-radius:18px;
-
-    background:
-
-    linear-gradient(
-        to bottom,
-        rgba(255,255,255,.95) 0%,
-        rgba(233,243,252,.95) 100%
-    );
-
-    border:1px solid #aac6e1;
-
-    box-shadow:
+.recent-card{position:relative;margin-bottom:24px;padding:24px;border-radius:18px;background: linear-gradient(to bottom, rgba(255, 255, 255, .95) 0%, rgba(233, 243, 252, .95) 100%);border:1px solid #aac6e1;box-shadow:
     inset 0 1px 0 white,
     inset 0 -1px 0 rgba(255,255,255,.5),
-    0 1px 3px rgba(0,0,0,.08);
-}
+    0 1px 3px rgba(0,0,0,.08);}
 
 .welcome-card::before,
 .recent-card::before{
@@ -223,43 +167,13 @@ main{
    APPS
 ========================== */
 
-.app-card{
-
-    position:relative;
-
-    overflow:hidden;
-
-    text-decoration:none;
-
-    color:#040404;
-
-    text-align:center;
-
-    padding:28px;
-
-    border-radius:22px;
-
-    background:
-
-    linear-gradient(
-        to bottom,
-        rgba(255,255,255,.97) 0%,
-        rgba(231,219,28,.96) 30%,
-        rgba(255,191,0,.95) 100%
-    );
-
-    border:1px solid #a4c0dc;
-
-    box-shadow:
+.app-card{position:relative;overflow:hidden;text-decoration:none;color:#040404;text-align:center;padding:28px;border-radius:22px;background: linear-gradient(to bottom, rgba(255, 255, 255, .97) 0%, rgb(253 180 14 / 96%) 30%, rgba(255, 191, 0, .95) 100%);border:1px solid #a4c0dc;box-shadow:
 
     inset 0 1px 0 white,
     inset 0 -1px 0 rgba(255,255,255,.5),
-    0 2px 5px rgba(0,0,0,.1);
-
-    transition:
+    0 2px 5px rgba(0,0,0,.1);transition:
     transform .2s,
-    box-shadow .2s;
-}
+    box-shadow .2s;}
 
 .app-card::before{
 
